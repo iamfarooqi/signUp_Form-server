@@ -5,15 +5,19 @@ const cors = require ("cors")
 
 PORT = process.env.PORT || 5000;
 
-let users
-var express = require("express");
+let users =[];
+console.log("abc")
 
 var server = express();
 
-server.get("/", (req, res, next) => {
-    console.log("some one get menu");
-    res.send("menu: what do you want? food or water");
+server.use(cors());
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({
+    extended: true;
 })
+
+server.use(morgan("dev"));
+
 
 
 
